@@ -1,0 +1,79 @@
+variables :
+  ADMIN_UI_DRUPAL_SERVER_IP :  10.44.18.166
+  ADMIN_UI_DRUPAL_SERVER_USERNAME : apimtestadmin
+  NPM_TOKEN: ${CI_JOB_TOKEN}
+  SSH_PRIVATE_KEY: ${ADMIN_UI_SSH_KEY}
+  STAGING_DIR: /home/apimtestadmin/proxy-gen
+  ADMIN_PASS: Apimtestadmin@1
+
+default:
+  image: docker:stable
+
+  cache:
+    key: "$CI_COMMIT_REF_SLUG"
+    paths:
+      - node_modules/
+
+  artifacts :
+    paths:
+      - dist 
+
+  before_script:
+    ##
+    ## Install ssh-agent if not already installed, it is required by Docker.
+    ## (change apt-get to yum if you use an RPM-based image)
+    ##
+    # - 'which sshpass || ( apt-get update -y && apt-get install openssh-client git sshpass -y )'
+    - 'which ssh-agent || ( apt-get update -y && apt-get install openssh-client git sshpass -y )'
+    # - apt-get install sshpass
+
+    ##
+    ## Run ssh-agent (inside the build environment)
+    ##
+    - eval $(ssh-agent -s)
+
+    ##
+    ## Add the SSH key stored in SSH_PRIVATE_KEY variable to the agent store
+    ## We're using tr to fix line endings which makes ed25519 keys work
+    ## without extra base64 encoding.
+    ## https://gitlab.com/gitlab-examples/ssh-private-key/issues/1#note_48526556
+    ##
+    - echo "$SSH_PRIVATE_KEY" | tr -d '\r' | ssh-add -
+
+    ##
+    ## Create the SSH directory and give it the right permissions
+    ##
+    - mkdir -p ~/.ssh
+    - chmod 700 ~/.ssh
+
+    - ssh-keyscan $ADMIN_UI_DRUPAL_SERVER_IP >> ~/.ssh/known_hosts
+    - chmod 644 ~/.ssh/known_hosts
+
+
+workflow:
+  rules:
+    - if: $CI_COMMIT_BRANCH
+
+
+stages:
+  - image
+
+publish-master-image:
+  image: docker:stable
+  stage: image
+  only:
+    - master
+  script:
+    -  echo "Release"
+    -  docker build . -t  nexus-aws.firstdata.com:8082/drupal-kickstart:latest
+    -  docker push nexus-aws.firstdata.com:8082/drupal-kickstart:latest
+
+publish-dev-image:
+  image: docker:stable
+  stage: image
+  only:
+    - develop
+  script:
+    -  echo "Release"
+    -  docker build . -t  nexus-aws.firstdata.com:8082/drupal-kickstart:develop
+    -  docker push nexus-aws.firstdata.com:8082/drupal-kickstart:develop

@@ -1,0 +1,28 @@
+// Page
+// -----------------------------------------------------------------------------
+.rich-text .orange{color:#f60}
+.rich-text .graphite_gray{color:#666}
+.rich-text .white{color:#fff}
+.rich-text .process_black{color:#000}
+.rich-text .steel_blue{color:#2e8bc9}
+.rich-text .charcoal_gray{color:#333}
+.rich-text .small{font-size:80%;line-height:1.3em}
+
+.card-body ul,
+.card-body ol {
+  list-style: none;
+  padding: 0px;
+}
+.card-header {
+  background: $white;
+  font-weight: 700;
+}
+.rate-plan--view-mode-teaser .card {
+  height: 100%;
+  width: 100%;
+}
+.rate-plan--view-mode-teaser {
+  background: none;
+  margin: 15px 0px;
+  padding:0px;
+}

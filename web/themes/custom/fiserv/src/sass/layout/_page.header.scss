@@ -1,0 +1,156 @@
+// Page: Header
+// -----------------------------------------------------------------------------
+.page__header {}
+
+.navbar {
+  -moz-transition: height 0.5s ease;
+  -webkit-transition: height 0.5s ease;
+  -o-transition: height 0.5s ease;
+  transition: height 0.5s ease;
+
+  &.bg-light {
+    background: $headerbg !important;
+    padding-bottom: 0;
+  }
+
+  &.sticky {
+    .nav-top {
+      height: 0px;
+      overflow: hidden;
+    }
+
+    .nav-bottom {
+      border: none;
+    }
+  }
+}
+
+@media (min-width: 992px) {
+  .navbar-expand-lg .navbar-collapse {
+    display: flex !important;
+    align-items: flex-end !important;
+    flex-direction: column;
+  }
+
+  .nav-top {
+    display: flex;
+    align-items: center;
+    height: 28px;
+    -moz-transition: height 0.5s ease;
+    -webkit-transition: height 0.5s ease;
+    -o-transition: height 0.5s ease;
+    transition: height 0.5s ease;
+
+    .navbar-nav {
+      .nav-link {
+        text-decoration: none;
+        color: #fff !important;
+        font-size: 14px;
+        font-weight: bold;
+        line-height: 27px;
+        padding: 0px 10px;
+      }
+
+      li.nav-item {
+        &:not(:last-child) {
+          padding: 0 10px;
+          border-right: 1px solid #c65000;
+        }
+      }
+    }
+  }
+
+  .nav-bottom {
+    .navbar-nav {
+      >li.nav-item {
+        position: relative;
+        &.active {
+          background: #fff;
+        }
+
+        &.dropdown.show {
+          background: #fff !important;
+          color: #333;
+        }
+
+        >a {
+          color: #fff;
+          padding: 12px 15px 17px;
+          position: relative;
+          text-decoration: none;
+
+          &:hover {
+            background: #fff !important;
+            color: #333;
+          }
+        }
+
+        &:hover {
+          &:before {
+            display: none;
+
+          }
+        }
+
+        &:not(:first-child):before {
+          z-index: 10;
+          content: '';
+          position: absolute;
+          width: 1px;
+          top: 0;
+          bottom: 15px;
+          background: #c65000;
+        }
+      }
+
+    }
+
+    margin-top: 5px;
+    border-top: 2px solid #fff;
+    border-top: 2px solid #ff7d26;
+    padding-top: 4px;
+    float: right;
+    margin-right: 0px;
+    font-size: 16px;
+    font-weight: bold;
+
+    .dropdown-menu {
+      background: #fff !important;
+      white-space: nowrap;
+      max-height: calc(100vh - 150px);
+      margin-top: 0px;
+      overflow-y: auto;
+      border-radius: 0px;
+
+      .dropdown-item {
+        display: block;
+        padding: .5rem 1rem;
+        position: relative;
+        text-decoration: none;
+        width: 100%;
+        height: 100%;
+        color: #333 !important;
+
+        &:hover {
+          color: #111 !important;
+          background: #e9e9e9 !important;
+        }
+      }
+    }
+  }
+}
+
+
+
+.home-bg {
+  background-image: url(/themes/custom/fiserv/assets/img/banner-bg.png);
+  background-repeat: no-repeat;
+    background-position: 100% 35%;
+    padding-bottom: 150px;
+  .home-hero-bg {
+    background-image: url(/themes/custom/fiserv/assets/img/banner-right.png);
+    background-repeat: no-repeat;
+    height: 450px;
+    background-position: 90% 100%;
+  }
+}

@@ -1,0 +1,47 @@
+ @font-face {
+   font-family: Univers Fiserv Light;
+   src: url(/themes/custom/fiserv/assets/fonts/UniversForFiserv45-Lt.eot);
+   src: url(/themes/custom/fiserv/assets/fonts/UniversForFiserv45-Lt.eot?#iefix) format("embedded-opentype"),
+     url(/themes/custom/fiserv/assets/fonts/UniversForFiserv45-Lt.otf) format("opentype"),
+     url(/themes/custom/fiserv/assets/fonts/UniversForFiserv45-Lt.svg) format("svg"),
+     url(/themes/custom/fiserv/assets/fonts/UniversForFiserv45-Lt.ttf) format("truetype"),
+     url(/themes/custom/fiserv/assets/fonts/UniversForFiserv45-Lt.woff) format("woff"),
+     url(/themes/custom/fiserv/assets/fonts/UniversForFiserv45-Lt.woff2) format("woff2");
+   font-weight: 400;
+   font-style: normal;
+   font-display: swap;
+ }
+
+ @font-face {
+   font-family: Univers Fiserv Regular;
+   src: url(/themes/custom/fiserv/assets/fonts/UniversForFiserv55.eot);
+   src: url(/themes/custom/fiserv/assets/fonts/UniversForFiserv55.eot?#iefix) format("embedded-opentype"),
+     url(/themes/custom/fiserv/assets/fonts/UniversForFiserv55.otf) format("opentype"),
+     url(/themes/custom/fiserv/assets/fonts/UniversForFiserv55.svg) format("svg"),
+     url(/themes/custom/fiserv/assets/fonts/UniversForFiserv55.ttf) format("truetype"),
+     url(/themes/custom/fiserv/assets/fonts/UniversForFiserv55.woff) format("woff"),
+     url(/themes/custom/fiserv/assets/fonts/UniversForFiserv55.woff2) format("woff2");
+   font-weight: 400;
+   font-style: normal;
+   font-display: swap;
+ }
+
+ @font-face {
+   font-family: Univers Fiserv Bold;
+   src: url(/themes/custom/fiserv/assets/fonts/UniversForFiserv65-Bd.eot);
+   src: url(/themes/custom/fiserv/assets/fonts/UniversForFiserv65-Bd.eot?#iefix) format("embedded-opentype"),
+     url(/themes/custom/fiserv/assets/fonts/UniversForFiserv65-Bd.otf) format("opentype"),
+     url(/themes/custom/fiserv/assets/fonts/UniversForFiserv65-Bd.svg) format("svg"),
+     url(/themes/custom/fiserv/assets/fonts/UniversForFiserv65-Bd.ttf) format("truetype"),
+     url(/themes/custom/fiserv/assets/fonts/UniversForFiserv65-Bd.woff) format("woff"),
+     url(/themes/custom/fiserv/assets/fonts/UniversForFiserv65-Bd.woff2) format("woff2");
+   font-weight: 400;
+   font-style: normal;
+   font-display: swap;
+ }
+
+ body {
+   font: normal 16px/1.45em Univers Fiserv Regular Verdana, sans-serif;
+   color: #333;
+   -webkit-font-smoothing: antialiased;
+ }

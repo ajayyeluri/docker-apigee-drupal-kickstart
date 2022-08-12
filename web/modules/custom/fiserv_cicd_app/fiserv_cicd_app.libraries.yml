@@ -1,0 +1,15 @@
+fiserv_cicd_app.cicd-ui-bundle:
+  version: 1.x
+  js:
+    js/cicd_uiapp_bundle.js: { minified: true }
+  dependencies:
+    - core/jquery
+    - core/drupal
+
+fiserv_cicd_app.config-admin-tool-bundle:
+  version: 1.x
+  js:
+    js/config_admin_tool_bundle.js: { minified: true }
+  dependencies:
+    - core/jquery
+    - core/drupal

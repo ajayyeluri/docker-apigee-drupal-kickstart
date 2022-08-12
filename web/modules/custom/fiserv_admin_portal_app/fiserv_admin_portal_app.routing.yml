@@ -1,0 +1,8 @@
+fiserv_admin_portal_app.loadAdminUiApp:
+  path: /fiserv-admin-ui/{admin_ui_route}
+  defaults:
+    _controller: \Drupal\fiserv_admin_portal_app\Controller\AdminUiAppController::loadAdminUiApp
+    _title: "Fiserv Admin UI" 
+    admin_ui_route: ''
+  requirements:
+    _permission: "access content"

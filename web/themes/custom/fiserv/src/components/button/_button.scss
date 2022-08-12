@@ -1,0 +1,40 @@
+
+input.btn {
+  text-transform: uppercase;
+
+  + .btn {
+    margin-left: 0.813rem;
+  }
+}
+
+[class*='btn-outline-'] {
+  border-width: 2px;
+  border-color:#f60;
+  color:#f60;
+}
+
+.btn-lg {
+  font-size: .875rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  min-width: 150px;
+  border-radius: 2px;
+}
+
+.btn-primary {
+  background-color: #f60;
+  border-width: 2px;
+  border-color: #f60;
+  color:#fff;
+
+  &:hover, &:focus {
+    background-color: #f60;
+    border-color: #fff;
+  }
+}
+
+.btn-outline-primary:focus,
+.btn-outline-primary:hover {
+  background-color: transparent;
+}

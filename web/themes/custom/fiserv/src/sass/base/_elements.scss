@@ -1,0 +1,178 @@
+// Headings
+// -----------------------------------------------------------------------------
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.h1,
+.h2,
+.h3,
+.h4,
+.h5,
+.h6 {
+  margin-bottom: .5rem;
+  font-weight: 500;
+  line-height: 1.2;
+
+  a {
+    color: inherit !important;
+  }
+
+}
+
+h1,
+.h1 {
+  font-size: 2.5rem;
+}
+
+h2,
+.h2 {
+  font-size: 2rem;
+}
+
+h3,
+.h3 {
+  font-size: 1.75rem;
+}
+
+h4,
+.h4 {
+  font-size: 1.5rem;
+}
+
+h5,
+.h5 {
+  font-size: 1.25rem;
+}
+
+h6,
+.h6 {
+  font-size: 1rem;
+}
+
+// Text
+// -----------------------------------------------------------------------------
+p {
+  color: $graydefault;
+}
+
+// Links
+// -----------------------------------------------------------------------------
+a {
+
+  color: $text-link;
+
+  @include hover {
+    color: $text-link;
+  }
+}
+
+// Lists
+// -----------------------------------------------------------------------------
+ol,
+ul,
+dl {}
+
+// Image
+// -----------------------------------------------------------------------------
+img {
+  max-width: 100%;
+}
+
+figure {}
+
+figcaption {}
+
+// Other
+// -----------------------------------------------------------------------------
+blockquote {}
+
+strong {
+  font-weight: bold;
+}
+
+small {
+  letter-spacing: 0.4px;
+  font-size: .75rem;
+}
+
+// Table
+// -----------------------------------------------------------------------------
+table,
+.table {
+
+  thead {
+
+    th {
+      font-weight: 500;
+      padding-left: 0;
+      padding-right: 0;
+    }
+  }
+
+  tbody {
+
+    td {
+      padding: 1.5rem 0;
+    }
+  }
+}
+
+table.table-bordered {
+
+  thead {
+    background-color: $gray-100 !important;
+
+    th {
+      padding-left: 1rem;
+      padding-right: 1rem;
+      border: 0;
+    }
+  }
+
+  tbody {
+
+    td {
+      padding: 1rem;
+    }
+  }
+}
+
+.ui-widget.ui-dialog {
+  z-index: 9999;
+
+  .ui-dialog-buttonset.form-actions {
+    display: flex;
+  }
+}
+
+form {}
+
+h1 {
+  font: 46px/54px Univers Fiserv Regular;
+  margin: 0 0 14px;
+  line-height: 54px;
+  font-weight: bold;
+}
+
+.btn {
+  border-radius: 2px;
+  min-width: 80px;
+  padding: 8px 16px;
+  font-weight: bold;
+  background: #f60;
+  color: #fff;
+  border: none;
+  &:hover {
+    color: #fff;
+    background-color: #cc5200;
+  }
+}
+.btn-primary:hover {
+  color: #fff;
+  background-color: #cc5200;
+  border-color: #cc5200;
+}

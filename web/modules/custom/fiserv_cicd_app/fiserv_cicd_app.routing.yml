@@ -1,0 +1,17 @@
+fiserv_cicd_app.loadCicdUiApp:
+  path: /fiserv-cicd/{cicd_ui_route}
+  defaults:
+    _controller: \Drupal\fiserv_cicd_app\Controller\CicdUiAppController::loadCicdUiApp
+    _title: "Fiserv CICD UI" 
+    cicd_ui_route: ''
+  requirements:
+    _permission: "access content"
+
+fiserv_cicd_app.loadConfigAdminToolUiApp:
+  path: /fiserv-config-admin-tool/{config_admin_tool_ui_route}
+  defaults:
+    _controller: \Drupal\fiserv_cicd_app\Controller\ConfigAdminToolController::loadConfigAdminToolUiApp
+    _title: "Fiserv Config Admin Tool UI" 
+    config_admin_tool_ui_route: ''
+  requirements:
+    _permission: "access content"

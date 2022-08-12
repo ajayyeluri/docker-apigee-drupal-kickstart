@@ -1,0 +1,6 @@
+name: Fiserv Admin Portal Application
+description: Custom module to run Fiserv admin ui application.
+package: Custom
+type: module
+version: 1.0
+core_version_requirement: ^8.8 || ^9

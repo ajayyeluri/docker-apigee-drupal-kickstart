@@ -63,9 +63,14 @@ RUN chmod +x /startup.sh /set-permissions.sh
 RUN mkdir -p /app/code/web/sites/default/files \
     && mkdir -p /app/code/web/sites/default/private \
     && mkdir -p /app/tmp \
-    && mkdir -p /app/config
+    && mkdir -p /app/config \
+    && mkdir -p /app/code/web/modules/custom \
+    && mkdir -p /app/code/web/themes/custom
 
 COPY container-assets/settings.php /app/code/web/sites/default/settings.php
+
+COPY web/modules/custom  /app/code/web/modules/custom
+COPY web/themes/custom /app/code/web/themes/custom
 
 RUN /set-permissions.sh --drupal_path=/app/code/web --drupal_user=www-data --httpd_group=www-data \
   && chown -R www-data:www-data /app/code/vendor

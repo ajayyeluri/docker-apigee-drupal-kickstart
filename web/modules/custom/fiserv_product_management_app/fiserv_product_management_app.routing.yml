@@ -1,0 +1,8 @@
+fiserv_product_management_app.loadProductManagementUiApp:
+  path: /product-management/{product_management_ui_route}
+  defaults:
+    _controller: \Drupal\fiserv_product_management_app\Controller\ProductManagementUiAppController::loadProductManagementUiApp
+    _title: "Fiserv Product Management Tool" 
+    product_management_ui_route: ''
+  requirements:
+    _user_is_logged_in: 'TRUE'

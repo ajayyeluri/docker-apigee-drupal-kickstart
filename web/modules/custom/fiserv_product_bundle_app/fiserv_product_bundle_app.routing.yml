@@ -1,0 +1,8 @@
+fiserv_product_bundle_app.loadProductBundleUiApp:
+  path: /fiserv-bundles/{product_bundle_ui_route}
+  defaults:
+    _controller: \Drupal\fiserv_product_bundle_app\Controller\ProductBundleUiAppController::loadProductBundleUiApp
+    _title: 'Fiserv Product Bundle UI App' 
+    product_bundle_ui_route: ''
+  requirements:
+    _role: 'plan_manager'

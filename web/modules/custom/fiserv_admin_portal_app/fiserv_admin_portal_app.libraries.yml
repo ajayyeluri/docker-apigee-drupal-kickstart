@@ -1,0 +1,7 @@
+fiserv_admin_portal_app.admin-ui-bundle:
+  version: 1.x
+  js:
+    js/admin_uiapp_bundle.js: { minified: true }
+  dependencies:
+    - core/jquery
+    - core/drupal

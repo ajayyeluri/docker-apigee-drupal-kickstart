@@ -1,0 +1,8 @@
+fiserv_product_management_app.product-management-ui-bundle:
+  version: 1.x
+  js:
+    js/fiserv-admin-ui-product-app.js: { minified: true }
+  dependencies:
+    - core/jquery
+    - core/drupal
+    - core/drupalSettings

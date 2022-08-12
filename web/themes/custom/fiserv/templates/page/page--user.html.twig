@@ -1,0 +1,116 @@
+{#
+/**
+ * @file
+ * Template for the main page.
+ */
+#}
+<div class="page">
+  {% embed '@radix/navbar/navbar.twig' with {
+    placement: 'sticky-top',
+    container: 'fixed',
+    color: 'light',
+    utility_classes: ['bg-light'],
+  } %}
+
+    {% block branding %}
+      {% if page.navbar_branding %}
+        {{ page.navbar_branding }}
+      {% endif %}
+    {% endblock %}
+
+    {% block left %}
+      {% if page.navbar_left %}
+        <div class="nav-top">
+          {{ page.navbar_left }}
+        </div>
+      {% endif %}
+    {% endblock %}
+
+    {% block right %}
+      {% if page.navbar_right %}
+      <div class="nav-bottom">
+        {{ page.navbar_right }}
+        </div>
+      {% endif %}
+    {% endblock %}
+  {% endembed %}
+
+    {% if page.header %}
+      <header class="page__header mb-3">
+        <div class="container-fluid p-0">
+          {{ page.header }}
+        </div>
+      </header>
+    {% endif %}
+ {% if page.tasks|render and not node.field_header.value %}
+    <div class="page__tasks">
+      <div class="container">
+        {{ page.tasks }}
+      </div>
+    </div>
+  {% endif %}
+   <main class="container-fluid pt-3 pb-3" role="main">
+    <a id="main-content" tabindex="-1"></a>{# link is in html.html.twig #}
+    {% block main %}
+      {% if sidebar_placement == 'bottom' %}
+        {% include '@fiserv/page/sidebar-bottom.twig' with {
+          container: main_container,
+          content: page.content,
+          sidebar_first: page.sidebar_first,
+          sidebar_second: page.sidebar_second,
+        } %}
+
+      {% elseif sidebar_placement == 'none' %}
+        {% include '@fiserv/page/sidebar-none.twig'with {
+          container: main_container,
+          content: page.content,
+        } %}
+
+      {% else %}
+        {% include '@fiserv/page/sidebar-default.twig' with {
+          container: main_container,
+          content: page.content,
+          sidebar_first: page.sidebar_first,
+          sidebar_second: page.sidebar_second,
+        } %}
+      {% endif %}
+    {% endblock %}
+  </main>
+ {% if page.socialsection %}
+    <footer class="page__social">
+      <div class="container">
+        <div class="d-flex justify-content-md-center align-items-md-center">
+          {{ page.socialsection }}
+        </div>
+      </div>
+    </footer>
+  {% endif %}
+ {% if page.footer_first or page.footer_second or page.footer_third or page.footer_fourth %}
+    <footer class="page__footer">
+      <div class="container">     
+        <div class="d-flex justify-content-md-between">
+          {% if page.footer_first %}
+            <div class="col-sm-3">
+            {{ page.footer_first }}
+          </div>
+        {% endif %}
+         {% if page.footer_second %}
+            <div class="col-sm-3">
+            {{ page.footer_second }}
+          </div>
+        {% endif %}
+         {% if page.footer_third %}
+            <div class="col-sm-3">
+            {{ page.footer_third }}
+          </div>
+        {% endif %}
+         {% if page.footer_fourth %}
+            <div class="col-sm-3">
+            {{ page.footer_fourth }}
+          </div>
+        {% endif %}
+        </div>
+       </div>
+    </footer>
+  {% endif %}
+</div>

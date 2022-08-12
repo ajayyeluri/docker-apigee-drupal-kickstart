@@ -1,0 +1,6 @@
+name: Fiserv CICD Application
+description: Custom module to run Fiserv cicd ui & config admin tool application.
+package: Custom
+type: module
+version: 1.0
+core_version_requirement: ^8.8 || ^9

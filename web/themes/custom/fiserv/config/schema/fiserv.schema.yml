@@ -1,0 +1,4 @@
+# Schema for the configuration files of the RADIX_SUBTHEME_NAME theme.
+fiserv.settings:
+  type: theme_settings
+  label: 'Fiserv settings'

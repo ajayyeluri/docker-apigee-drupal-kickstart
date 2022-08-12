@@ -1,0 +1,32 @@
+style:
+  version: VERSION
+  css:
+    theme:
+      assets/css/fiserv.style.css: {}
+  js:
+    assets/js/fiserv.script.js: {}
+  dependencies:
+    - core/jquery
+    - core/drupal
+commerce.authnet:
+  js:
+    assets/js/fiserv.commerce.authnet.js: {}
+
+commerce.stripe:
+  js:
+    assets/js/fiserv.commerce.stripe.js: {}
+monetization:
+  css:
+    theme:
+      assets/css/fiserv.monetization.css: {}
+      assets/css/fiserv.apigeex.css: {}
+
+monetization.add-credit:
+  css:
+    theme:
+      assets/css/fiserv.monetization.add-credit.css: {}
+
+smartdocs:
+  css:
+    theme:
+      assets/css/apigee-kickstart.smartdocs.css: {}

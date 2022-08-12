@@ -1,0 +1,7 @@
+fiserv_product_bundle_app.product-bundle-ui-bundle:
+  version: 1.x
+  js:
+    js/product_bundle_uiapp_bundle.js: { minified: true }
+  dependencies:
+    - core/jquery
+    - core/drupal

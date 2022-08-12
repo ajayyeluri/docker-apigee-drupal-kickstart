@@ -14,8 +14,8 @@
 
 version: '3'
 services:
-  apigee-kickstart:
-    image: ghcr.io/apigee/docker-apigee-drupal-kickstart:latest
+  drupal-kickstart:
+    image: sidgs001/drupal-kickstart:latest
     build:
       context: .
       dockerfile: Dockerfile
@@ -42,7 +42,7 @@ services:
   apigee-kickstart-database:
     image: mariadb:10.6
     volumes:
-    - apigee-kickstart-database-volume:/var/lib/mysql:delegated
+    - apim-database-volume:/var/lib/mysql:delegated
     environment:
     - MYSQL_DATABASE=apigee_devportal
     - MYSQL_USER=dbuser
@@ -54,6 +54,6 @@ services:
       timeout: 10s
       retries: 6
 volumes:
-  apigee-kickstart-database-volume:
+  apim-database-volume:
   drupal-public-files:
   drupal-private-files:

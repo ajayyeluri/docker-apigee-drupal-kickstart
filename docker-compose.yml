@@ -15,7 +15,7 @@
 version: '3'
 services:
   drupal-kickstart:
-    image: sidgs001/drupal-kickstart:latest
+    image: nexus-aws.firstdata.com:8082/drupal-kickstart:latest
     build:
       context: .
       dockerfile: Dockerfile
@@ -23,37 +23,38 @@ services:
     - "8080:80"
     env_file:
     - apigee.env
+    restart: unless-stopped
     environment:
-    - DRUPAL_DATABASE_NAME=apigee_devportal
-    - DRUPAL_DATABASE_USER=dbuser
-    - DRUPAL_DATABASE_PASSWORD=passw0rd
-    - DRUPAL_DATABASE_HOST=apigee-kickstart-database
+    - DRUPAL_DATABASE_NAME=apim-btat-mysql
+    - DRUPAL_DATABASE_USER=ApimBtatMysql
+    - DRUPAL_DATABASE_PASSWORD=Mysqlapimbtat@1
+    - DRUPAL_DATABASE_HOST=apim-btat-mysql.mysql.database.azure.com
     - DRUPAL_DATABASE_PORT=3306
     - DRUPAL_DATABASE_DRIVER=mysql
     - AUTO_INSTALL_PORTAL=${AUTO_INSTALL_PORTAL}
-    links:
-    - apigee-kickstart-database
-    depends_on:
-      apigee-kickstart-database:
-        condition: service_healthy
+    # links:
+    # - apigee-kickstart-database
+    # depends_on:
+    #   apigee-kickstart-database:
+    #     condition: service_healthy
     volumes:
-    - drupal-public-files:/app/code/web/sites/default/files
-    - drupal-private-files:/app/code/web/sites/default/private
-  apigee-kickstart-database:
-    image: mariadb:10.6
-    volumes:
-    - apim-database-volume:/var/lib/mysql:delegated
-    environment:
-    - MYSQL_DATABASE=apigee_devportal
-    - MYSQL_USER=dbuser
-    - MYSQL_PASSWORD=passw0rd
-    - MYSQL_ROOT_PASSWORD=rootpasswd
-    healthcheck:
-      test: [ "CMD-SHELL", 'mysql --database=$$MYSQL_DATABASE --password=$$MYSQL_ROOT_PASSWORD --execute="show tables;" --skip-column-names -B' ]
-      interval: 10s
-      timeout: 10s
-      retries: 6
+    - standalone-drupal-public-files:/app/code/web/sites/default/files
+    - standalone-drupal-private-files:/app/code/web/sites/default/private
+  # apigee-kickstart-database:
+  #   image: mariadb:10.6
+  #   volumes:
+  #   - apim-database-volume:/var/lib/mysql:delegated
+  #   environment:
+  #   - MYSQL_DATABASE=apigee_devportal
+  #   - MYSQL_USER=dbuser
+  #   - MYSQL_PASSWORD=passw0rd
+  #   - MYSQL_ROOT_PASSWORD=rootpasswd
+  #   healthcheck:
+  #     test: [ "CMD-SHELL", 'mysql --database=$$MYSQL_DATABASE --password=$$MYSQL_ROOT_PASSWORD --execute="show tables;" --skip-column-names -B' ]
+  #     interval: 10s
+  #     timeout: 10s
+  #     retries: 6
 volumes:
-  apim-database-volume:
-  drupal-public-files:
-  drupal-private-files:
+  # apim-database-volume:
+  standalone-drupal-public-files:
+  standalone-drupal-private-files:
